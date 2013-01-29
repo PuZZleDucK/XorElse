@@ -21,14 +21,6 @@ public class XorElse {
         System.exit(1);
     }//if args
 
-    //TODOne: add check for quoted strings in arguments and allow for spaced input of the forms:
-    //  "2134 1234 1234 1234 1234 1234 1234 1243" and "21341234 12341234 12341234 12341243"
-    // if startsWith() is '"', ''' or '`' (or'<', '{', '(' or '[') then trim and concat until 
-    // endsWith() char is a match to opening quote.
-//    if( args[0].charAt(0) == '"' || args[0].charAt(0) == '\'' || args[0].charAt(0) == '[' ) {
-    //  system already handles quotes... I'll just need to strip spaces, comas, dashes, anything
-
-
     BigInteger hexResult = null;
     String stringResult = "";
     BigInteger[] hexValues = new BigInteger[args.length];
@@ -42,8 +34,6 @@ public class XorElse {
         }
         hexValues[count] = new BigInteger(args[count], RADIX_BASE);
 
-//      System.out.println("  Hex input:" + args[count] 
-//                            + " --> Dec bigInt:" + hexValues[count]);
         System.out.println("Raw input " + (count+1) + ": " + formatHexString(args[count]) );
 
         if ( count > 0 ) {
@@ -56,10 +46,8 @@ public class XorElse {
             System.out.println("  XOr Result: " + formatHexString(stringResult));
         } //if last
       
-
     }//for count
 
-      //System.out.println("Final result: " + stringResult);
     System.out.println("Done:");
     System.exit(0);
   }//main
