@@ -23,18 +23,23 @@ public class XorElse {
 
     BigInteger hexResult = null;
     String stringResult = "";
+    int maxInputLength = 0;
     BigInteger[] hexValues = new BigInteger[args.length];
     for(int count = 0; count < args.length; count++) {
-        args[count] = args[count].replace(" ", "");
-        args[count] = args[count].replace("-", "");
-        args[count] = args[count].replace(",", "");
-        args[count] = args[count].replace(".", "");
+        args[count] = args[count].replace(" ", "")
+                                 .replace("-", "")
+                                 .replace(",", "")
+                                 .replace(".", "");
         if ( args[count].charAt(0) == '0' && (args[count].charAt(1) == 'x' || args[count].charAt(1) == 'X') ) {
             args[count] = args[count].substring(2);
         }
-        hexValues[count] = new BigInteger(args[count], RADIX_BASE);
 
-        System.out.println("Raw input " + (count+1) + ": " + formatHexString(args[count]) );
+        hexValues[count] = new BigInteger(args[count], RADIX_BASE);
+        if(args[count].length() > maxInputLength) {
+	    maxInputLength = args[count].length();
+	}
+
+	        System.out.println("Input " + (count+1) + ": " + formatHexString(args[count], args[count].length()));
 
         if ( count > 0 ) {
             hexResult = hexResult.xor(hexValues[count]);
@@ -43,28 +48,39 @@ public class XorElse {
         } //if not first
         stringResult = hexResult.toString(RADIX_BASE);
         if ( count == (args.length-1) ) {
-            System.out.println("  XOr Result: " + formatHexString(stringResult));
+	        System.out.println("    XOr: " + formatHexString(stringResult, maxInputLength));
         } //if last
       
     }//for count
 
-    System.out.println("Done:");
     System.exit(0);
   }//main
 
-   public static String formatHexString(String inputString) {
-      StringBuilder outputString = new StringBuilder();
+    public static String formatHexString(String inputString, int outputLength) {
+      String outputString = "";
       int endCut = 0;
       int sectionLength = 8;
+      //      System.out.println("L:"+inputString+" === "+inputString.length());
       for (int i = 0; i < inputString.length(); i+=sectionLength) {
          endCut = i+sectionLength;
          if ( i+sectionLength > inputString.length() ) {
             endCut = inputString.length();
          }
-         outputString.append(inputString.substring(i, endCut).toUpperCase() );
-         outputString.append(" ");
+         String part = inputString.substring(i, endCut).toUpperCase();
+	 while(part.length() < sectionLength) {
+	     part = "0"+part;
+	 }
+         //System.out.println("  P:"+part);
+         outputString += part;
+         outputString += " ";
       }
-      return outputString.toString();
+      while(outputString.length() <= outputLength) {
+	  if(outputString.length()%sectionLength == 0){
+	      outputString += "x";
+	  }
+	  outputString = "_"+outputString;
+      }
+      return outputString;
    }//formatHexString
 
 }//class
