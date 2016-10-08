@@ -10,6 +10,10 @@ java XorElse.java
 
 [![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/xorelse/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/xorelse)
 
+### CoodeClimate badge:
+
+[![Code Climate](https://codeclimate.com/github/PuZZleDucK/XorElse/badges/gpa.svg)](https://codeclimate.com/github/PuZZleDucK/XorElse)
+
 ## Usage:
 
 java XorElse <hex> ... <strings>
