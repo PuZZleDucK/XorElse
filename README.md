@@ -6,6 +6,10 @@ A simple java program that XORs two or more hexidecimal strings
 
 java XorElse.java
 
+### Semaphore badge:
+
+[![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/xorelse/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/xorelse)
+
 ## Usage:
 
 java XorElse <hex> ... <strings>
