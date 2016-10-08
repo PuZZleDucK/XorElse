@@ -10,9 +10,13 @@ java XorElse.java
 
 [![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/xorelse/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/xorelse)
 
-### CoodeClimate badge:
+### CoodeClimate:
 
 [![Code Climate](https://codeclimate.com/github/PuZZleDucK/XorElse/badges/gpa.svg)](https://codeclimate.com/github/PuZZleDucK/XorElse)
+
+[![Test Coverage](https://codeclimate.com/github/PuZZleDucK/XorElse/badges/coverage.svg)](https://codeclimate.com/github/PuZZleDucK/XorElse/coverage)
+
+[![Issue Count](https://codeclimate.com/github/PuZZleDucK/XorElse/badges/issue_count.svg)](https://codeclimate.com/github/PuZZleDucK/XorElse)
 
 ## Usage:
 
